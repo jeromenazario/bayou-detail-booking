@@ -190,6 +190,80 @@ body {
   }
 }
 
+/* Staggered child reveals — children of [data-stagger] cascade in one by
+   one once the surrounding <Reveal> flips data-shown */
+[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.9s var(--ease-premium),
+    transform 0.9s var(--ease-premium);
+}
+
+[data-shown="true"] [data-stagger] > * {
+  opacity: 1;
+  transform: none;
+}
+
+[data-shown="true"] [data-stagger] > *:nth-child(1) { transition-delay: 0.08s; }
+[data-shown="true"] [data-stagger] > *:nth-child(2) { transition-delay: 0.16s; }
+[data-shown="true"] [data-stagger] > *:nth-child(3) { transition-delay: 0.24s; }
+[data-shown="true"] [data-stagger] > *:nth-child(4) { transition-delay: 0.32s; }
+[data-shown="true"] [data-stagger] > *:nth-child(5) { transition-delay: 0.4s; }
+[data-shown="true"] [data-stagger] > *:nth-child(6) { transition-delay: 0.48s; }
+[data-shown="true"] [data-stagger] > *:nth-child(7) { transition-delay: 0.56s; }
+[data-shown="true"] [data-stagger] > *:nth-child(8) { transition-delay: 0.64s; }
+/* Big collections (ZIP cloud) shouldn't take forever — cap the tail */
+[data-shown="true"] [data-stagger] > *:nth-child(n + 9) { transition-delay: 0.72s; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-stagger] > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Scroll-linked parallax — native CSS scroll-driven animations.
+   Browsers without support simply render the static image. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    /* Hero photo drifts down slightly as the page scrolls away */
+    .hero-drift {
+      scale: 1.12;
+      animation: hero-drift linear both;
+      animation-timeline: scroll();
+      animation-range: 0 120vh;
+    }
+
+    /* Section photos glide vertically while crossing the viewport */
+    .drift-view {
+      scale: 1.14;
+      animation: drift-view linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+  }
+}
+
+@keyframes hero-drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(5%);
+  }
+}
+
+@keyframes drift-view {
+  from {
+    transform: translateY(-4.5%);
+  }
+  to {
+    transform: translateY(4.5%);
+  }
+}
+
 /* Film-grain texture — host needs `relative` + `overflow-hidden` */
 .grain::after {
   content: "";

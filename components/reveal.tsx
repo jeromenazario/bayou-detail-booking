@@ -40,6 +40,7 @@ export function Reveal({
   return (
     <div
       ref={ref}
+      data-shown={shown}
       className={`${className} transition-all duration-1000 ease-premium motion-reduce:transition-none ${
         shown
           ? "translate-y-0 opacity-100"

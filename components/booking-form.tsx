@@ -413,7 +413,7 @@ export function BookingForm({ dates }: { dates: BookableDate[] }) {
           <div
             role="radiogroup"
             aria-label="Day"
-            className="no-scrollbar -mx-5 flex snap-x gap-2 overflow-x-auto px-5 sm:-mx-8 sm:px-8"
+            className="no-scrollbar -mx-5 -mt-1 flex snap-x gap-2 overflow-x-auto scroll-px-6 px-6 py-1 [mask-image:linear-gradient(to_right,transparent,black_1.25rem,black_calc(100%-2.75rem),transparent)] sm:-mx-8 sm:scroll-px-9 sm:px-9"
           >
             {dates.map((date) => {
               const selected = dateValue === date.value;

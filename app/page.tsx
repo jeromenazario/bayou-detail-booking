@@ -139,7 +139,7 @@ export default function Home() {
               fill
               priority
               sizes="100vw"
-              className="object-cover object-center"
+              className="hero-drift object-cover object-center"
             />
           </div>
           <div className="p-3 sm:p-5 lg:absolute lg:inset-x-0 lg:bottom-0">
@@ -223,7 +223,7 @@ export default function Home() {
                     includes our crew, water, and power — you provide the
                     driveway.
                   </p>
-                  <div className="mt-7 grid grid-cols-2 gap-2">
+                  <div data-stagger className="mt-7 grid grid-cols-2 gap-2">
                     {SERVICES.map((service) => (
                       <div
                         key={service.id}
@@ -266,7 +266,7 @@ export default function Home() {
                     alt="A Bayou Detail Co. detailer hand-washing a black coupe at golden hour, branded bottles lined up beside the wheel"
                     fill
                     sizes="(min-width: 1024px) 560px, 100vw"
-                    className="object-cover object-[45%_center]"
+                    className="drift-view object-cover object-[45%_center]"
                   />
                 </div>
               </div>
@@ -296,7 +296,7 @@ export default function Home() {
                     Booked in a minute.{" "}
                     <span className="text-rust">Spotless by three.</span>
                   </h2>
-                  <div className="mt-7 space-y-3">
+                  <div data-stagger className="mt-7 space-y-3">
                     {STEPS.map((step) => (
                       <div
                         key={step.n}
@@ -378,7 +378,7 @@ export default function Home() {
                     <h3 className="mt-7 font-display text-[2.6rem] font-bold leading-[1.08] tracking-tight [text-wrap:balance]">
                       Your driveway. Our crew. Zero hassle.
                     </h3>
-                    <ul className="mt-10 max-w-md space-y-4">
+                    <ul data-stagger className="mt-10 max-w-md space-y-4">
                       {TRUST_POINTS.map((point) => (
                         <li
                           key={point}
@@ -419,7 +419,7 @@ export default function Home() {
               Houston&apos;s mobile detailing — we come to you. Serving 18 ZIP
               codes across greater Houston.
             </p>
-            <div className="mt-8 flex max-w-2xl flex-wrap gap-1.5">
+            <div data-stagger className="mt-8 flex max-w-2xl flex-wrap gap-1.5">
               {SERVICE_AREA_LIST.map((z) => (
                 <span
                   key={z}
